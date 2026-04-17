@@ -15,17 +15,13 @@ using System.Windows.Shapes;
 namespace FlightTicketManager.GUI
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for FrmBookingInfo.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class FrmBookingInfo : Window
     {
-        public LoginWindow()
+        public FrmBookingInfo()
         {
             InitializeComponent();
-        }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Chưa xử lý đăng nhập.");
         }
     }
 }
