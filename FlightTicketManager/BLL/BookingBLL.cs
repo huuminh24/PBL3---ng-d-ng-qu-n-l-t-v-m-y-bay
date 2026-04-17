@@ -21,7 +21,7 @@ namespace FlightTicketManager.BLL
                 throw new Exception("Phải có ít nhất 1 hành khách.");
 
             if (request.Passengers.Count > 9)
-                throw new Exception("Tối đa 9 hành khách cho một lần đặt vé.");
+                throw new Exception("Tối đa 9 hành khách cho một lần đặt vé");
 
             if (string.IsNullOrWhiteSpace(request.ContactFullName))
                 throw new Exception("Tên người liên hệ không được để trống.");
