@@ -1,0 +1,100 @@
+﻿<Window x:Class="FlightTicketManager.GUI.DatVeHoStaffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Đặt vé hộ"
+        Height="520"
+        Width="620"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F8FAFD">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="ĐẶT VÉ HỘ CHO KHÁCH"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#1E88E5"
+                   Margin="0 0 0 20"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Mã vé:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtMaVe" Grid.Row="0" Grid.Column="1" Margin="0 0 0 12" IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Mã chuyến bay:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtMaChuyenBay" Grid.Row="1" Grid.Column="1" Margin="0 0 0 12" IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Lộ trình:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtLoTrinh" Grid.Row="2" Grid.Column="1" Margin="0 0 0 12" IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Họ tên khách:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtTenKhachHang" Grid.Row="3" Grid.Column="1" Margin="0 0 0 12"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Loại hành khách:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CboLoaiHanhKhach" Grid.Row="4" Grid.Column="1" Margin="0 0 0 12" SelectedIndex="0">
+                <ComboBoxItem Content="Người lớn"/>
+                <ComboBoxItem Content="Trẻ em"/>
+                <ComboBoxItem Content="Em bé"/>
+            </ComboBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Số giấy tờ:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtSoGiayTo" Grid.Row="5" Grid.Column="1" Margin="0 0 0 12"/>
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Hạng ghế:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CboHangGhe" Grid.Row="6" Grid.Column="1" Margin="0 0 0 12" SelectedIndex="0">
+                <ComboBoxItem Content="Economy"/>
+                <ComboBoxItem Content="Business"/>
+            </ComboBox>
+
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Số ghế:" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtSoGhe" Grid.Row="7" Grid.Column="1" Margin="0 0 0 12" Text="A01"/>
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Giá vé (VNĐ):" Margin="0 0 10 12" VerticalAlignment="Center"/>
+            <TextBox x:Name="TxtGiaVe" Grid.Row="8" Grid.Column="1" Margin="0 0 0 12" Text="1500000"/>
+
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="Thanh toán:" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CboThanhToan" Grid.Row="9" Grid.Column="1" SelectedIndex="0">
+                <ComboBoxItem Content="Tiền mặt"/>
+                <ComboBoxItem Content="Chuyển khoản"/>
+                <ComboBoxItem Content="Ví điện tử"/>
+            </ComboBox>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 20 0 0">
+            <Button Content="Xác nhận đặt vé"
+                    Width="140"
+                    Height="38"
+                    Margin="0 0 10 0"
+                    Background="#43A047"
+                    Foreground="White"
+                    Click="BtnXacNhan_Click"/>
+            <Button Content="Đóng"
+                    Width="100"
+                    Height="38"
+                    Background="#9E9E9E"
+                    Foreground="White"
+                    Click="BtnDong_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,76 @@
+﻿<Page x:Class="FlightTicketManager.GUI.ThongKeDoanhThuStaffPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Thống kê doanh thu">
+
+    <Grid Background="#F8FAFD">
+        <Border Background="White" Margin="20" Padding="20">
+            <StackPanel>
+                <TextBlock Text="THỐNG KÊ DOANH THU"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#1E88E5"
+                           Margin="0 0 0 20"/>
+
+                <WrapPanel Margin="0 0 0 20">
+                    <Border Width="220" Height="100" Background="#E3F2FD" CornerRadius="10" Margin="0 0 15 15" Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="Tổng vé đã bán" FontSize="16" FontWeight="SemiBold" Foreground="#1565C0"/>
+                            <TextBlock x:Name="TxtTongVeDaBan" Text="0" FontSize="28" FontWeight="Bold" Foreground="#0D47A1" Margin="0 10 0 0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="220" Height="100" Background="#FFEBEE" CornerRadius="10" Margin="0 0 15 15" Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="Vé đã hủy" FontSize="16" FontWeight="SemiBold" Foreground="#C62828"/>
+                            <TextBlock x:Name="TxtVeDaHuy" Text="0" FontSize="28" FontWeight="Bold" Foreground="#B71C1C" Margin="0 10 0 0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="260" Height="100" Background="#E8F5E9" CornerRadius="10" Margin="0 0 15 15" Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="Doanh thu tạm tính" FontSize="16" FontWeight="SemiBold" Foreground="#2E7D32"/>
+                            <TextBlock x:Name="TxtTongDoanhThu" Text="0 VNĐ" FontSize="24" FontWeight="Bold" Foreground="#1B5E20" Margin="0 10 0 0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="220" Height="100" Background="#FFF8E1" CornerRadius="10" Margin="0 0 0 15" Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="Yêu cầu chờ xử lý" FontSize="16" FontWeight="SemiBold" Foreground="#F57F17"/>
+                            <TextBlock x:Name="TxtYeuCauChoXuLy" Text="0" FontSize="28" FontWeight="Bold" Foreground="#E65100" Margin="0 10 0 0"/>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
+                    <Button Content="Tải thống kê demo"
+                            Width="170"
+                            Height="40"
+                            Background="#1E88E5"
+                            Foreground="White"
+                            Margin="0 0 10 0"
+                            Click="BtnTaiThongKeDemo_Click"/>
+
+                    <TextBlock Text="Dữ liệu đang ở mức demo để phục vụ trình bày nghiệp vụ Staff."
+                               VerticalAlignment="Center"
+                               Foreground="#555"/>
+                </StackPanel>
+
+                <DataGrid x:Name="DgThongKe"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          IsReadOnly="True"
+                          Height="290">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Ngày" Binding="{Binding Ngay}" Width="130"/>
+                        <DataGridTextColumn Header="Số vé bán" Binding="{Binding SoVeDaBan}" Width="100"/>
+                        <DataGridTextColumn Header="Số vé hủy" Binding="{Binding SoVeDaHuy}" Width="100"/>
+                        <DataGridTextColumn Header="Doanh thu" Binding="{Binding DoanhThuHienThi}" Width="150"/>
+                        <DataGridTextColumn Header="Yêu cầu chờ xử lý" Binding="{Binding YeuCauChoXuLy}" Width="150"/>
+                        <DataGridTextColumn Header="Ghi chú" Binding="{Binding GhiChu}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

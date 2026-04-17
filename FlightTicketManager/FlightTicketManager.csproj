@@ -6,7 +6,20 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <StartupObject>FlightTicketManager.App</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GUI\LoginWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="GUI\Images\Designer.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="GUI\LoginWindow.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.15" />
@@ -20,6 +33,10 @@
     <Folder Include="BLL\" />
     <Folder Include="DAL\" />
     <Folder Include="DTO\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="GUI\Images\Designer.png" />
   </ItemGroup>
 
 </Project>
