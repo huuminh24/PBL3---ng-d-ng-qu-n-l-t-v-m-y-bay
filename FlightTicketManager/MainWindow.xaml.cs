@@ -1,20 +1,11 @@
-﻿using FlightTicketManager.GUI;
-using System.Text;
+//using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using FlightTicketManager.GUI;
+// using FlightTicketManager.Models; // Mở dòng này ra nếu bạn đã cấu hình xong Database
 
 namespace FlightTicketManager
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -26,6 +17,20 @@ namespace FlightTicketManager
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void btnHeaderLogin_Click(object sender, MouseButtonEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
+
+        private void btnHeaderRegister_Click(object sender, MouseButtonEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
         }
     }
 }
