@@ -54,11 +54,11 @@
                 </Border>
 
                 <ScrollViewer Grid.Row="4"
-                              VerticalScrollBarVisibility="Auto">
-                    <WrapPanel x:Name="wpSeats"
-                               HorizontalAlignment="Center"
-                               ItemWidth="90"
-                               ItemHeight="55"/>
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                    <UniformGrid x:Name="ugSeats"
+                 Columns="4"
+                 HorizontalAlignment="Center"/>
                 </ScrollViewer>
             </Grid>
         </Border>
