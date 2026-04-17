@@ -19,9 +19,12 @@ namespace FlightTicketManager.DTO
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }
         public string Status { get; set; }
+//<<<<<<< HEAD
 
         public decimal EconomyPrice { get; set; }
         public decimal BusinessPrice { get; set; }
         public int AvailableSeats { get; set; }
+//=======
+//>>>>>>> 2d62c05ca27390a1cd1c190b3aaaa4042304bce0
     }
 }
