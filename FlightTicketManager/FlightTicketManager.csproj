@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,22 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <StartupObject>FlightTicketManager.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="GUI\LoginWindow.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="GUI\Images\Designer.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="GUI\LoginWindow.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Folder Include="DAL\" />
+    <Folder Include="BLL\" />
+    <Folder Include="GUI\" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.15">
       <PrivateAssets>all</PrivateAssets>
@@ -36,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="GUI\Images\Designer.png" />
+    <Resource Include="Images\phongcanh.png" />
   </ItemGroup>
 
 </Project>

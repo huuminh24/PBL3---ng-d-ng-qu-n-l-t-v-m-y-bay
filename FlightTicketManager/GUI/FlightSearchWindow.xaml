@@ -1,84 +1,205 @@
 ﻿<Window x:Class="FlightTicketManager.GUI.FlightSearchWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Vietjet Air - Bay là thích ngay!" Height="768" Width="1100" WindowStartupLocation="CenterScreen">
+        Title="Tìm chuyến bay"
+        Height="760"
+        Width="1150"
+        MinHeight="700"
+        MinWidth="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
 
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#FFF0DF" Offset="0"/>
-            <GradientStop Color="#FFD2C0" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-    <Grid>
-        <Border Width="450" Height="480" Background="#DA2128" CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,80,0">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="15" Opacity="0.3" Direction="315"/>
-            </Border.Effect>
+            <!-- Form tìm kiếm ở giữa -->
+            <Border Grid.Row="0"
+                    Width="520"
+                    HorizontalAlignment="Center"
+                    Background="#DA2128"
+                    CornerRadius="18"
+                    Padding="28">
+                <StackPanel>
+                    <TextBlock Text="TÌM CHUYẾN BAY"
+                               Foreground="White"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,8"/>
 
-            <StackPanel Margin="25">
-                <TextBlock Text="Mua hành lý, suất ăn, chọn chỗ ngồi và hơn thế nữa..." 
-                           Foreground="White" FontSize="15" FontWeight="Bold" Margin="0,0,0,15"/>
+                    <TextBlock Text="Chọn điểm đi, điểm đến, ngày bay để tìm chuyến bay phù hợp"
+                               Foreground="White"
+                               FontSize="14"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,22"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                    <RadioButton Content="Khứ hồi" Foreground="White" FontSize="15" FontWeight="SemiBold" Margin="0,0,15,0" Cursor="Hand"/>
-                    <RadioButton Content="Một chiều" Foreground="White" FontSize="15" FontWeight="SemiBold" IsChecked="True" Margin="0,0,15,0" Cursor="Hand"/>
-                    <TextBlock Text="Nhiều chặng ↗" Foreground="White" FontSize="14" TextDecorations="Underline" Cursor="Hand" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <!-- Điểm đi -->
+                    <TextBlock Text="Điểm đi"
+                               Foreground="White"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Margin="2,0,0,6"/>
+                    <Border Background="White" CornerRadius="8" Height="46" Margin="0,0,0,14">
+                        <TextBox x:Name="txtOrigin"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 FontSize="16"
+                                 VerticalContentAlignment="Center"
+                                 Padding="14,0"
+                                 Text="SGN"/>
+                    </Border>
+
+                    <!-- Điểm đến -->
+                    <TextBlock Text="Điểm đến"
+                               Foreground="White"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Margin="2,0,0,6"/>
+                    <Border Background="White" CornerRadius="8" Height="46" Margin="0,0,0,14">
+                        <TextBox x:Name="txtDestination"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 FontSize="16"
+                                 VerticalContentAlignment="Center"
+                                 Padding="14,0"
+                                 Text="HAN"/>
+                    </Border>
+
+                    <!-- Ngày bay + số hành khách -->
+                    <Grid Margin="0,0,0,18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="16"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Ngày bay"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"
+                                       Margin="2,0,0,6"/>
+                            <Border Background="White" CornerRadius="8" Height="46">
+                                <DatePicker x:Name="dpDeparture"
+                                            BorderThickness="0"
+                                            Background="Transparent"
+                                            FontSize="14"
+                                            Padding="8,6"/>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Số hành khách"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"
+                                       Margin="2,0,0,6"/>
+                            <Border Background="White" CornerRadius="8" Height="46">
+                                <ComboBox x:Name="cbPassengers"
+                                          BorderThickness="0"
+                                          Background="Transparent"
+                                          FontSize="15"
+                                          SelectedIndex="0"
+                                          VerticalContentAlignment="Center"
+                                          Padding="10,6">
+                                    <ComboBoxItem Content="1 người lớn"/>
+                                    <ComboBoxItem Content="2 người lớn"/>
+                                    <ComboBoxItem Content="1 người lớn, 1 trẻ em"/>
+                                </ComboBox>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <TextBlock Text="Ví dụ mã sân bay: SGN, HAN, DAD"
+                               Foreground="#FFE9B8"
+                               FontSize="12"
+                               Margin="2,0,0,16"/>
+
+                    <Button x:Name="btnSearchFlight"
+                            Content="Tìm chuyến bay"
+                            Height="48"
+                            Background="#F2C00F"
+                            Foreground="#9B1116"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Click="btnSearchFlight_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="24"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </StackPanel>
+            </Border>
 
-                <Grid Margin="0,0,0,15">
+            <!-- Khu kết quả -->
+            <Border Grid.Row="2"
+                    Background="White"
+                    CornerRadius="16"
+                    Padding="20"
+                    BorderBrush="#D9E2EC"
+                    BorderThickness="1"
+                    MinHeight="360">
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="15"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="14"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="14"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="140"/>
-                    </Grid.ColumnDefinitions>
 
-                    <Border Grid.Row="0" Grid.Column="0" Background="White" CornerRadius="5">
-                        <TextBox x:Name="txtOrigin" BorderThickness="0" Background="Transparent" FontSize="16" Padding="15,13" Text="✈  Điểm khởi hành" Foreground="#555"/>
-                    </Border>
-                    <Border Grid.Row="0" Grid.Column="2" Background="White" CornerRadius="5">
-                        <DatePicker x:Name="dpDeparture" BorderThickness="0" Background="Transparent" FontSize="14" Padding="5,10"/>
-                    </Border>
+                    <TextBlock Text="Danh sách chuyến bay phù hợp"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#102A43"/>
 
-                    <Border Grid.Row="2" Grid.Column="0" Background="White" CornerRadius="5">
-                        <TextBox x:Name="txtDestination" BorderThickness="0" Background="Transparent" FontSize="16" Padding="15,13" Text="✈  Điểm đến" Foreground="#555"/>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="2" Background="White" CornerRadius="5">
-                        <DatePicker x:Name="dpReturn" BorderThickness="0" Background="Transparent" FontSize="14" Padding="5,10" IsEnabled="False"/>
-                    </Border>
+                    <DataGrid x:Name="dgFlights"
+                              Grid.Row="2"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              SelectionUnit="FullRow"
+                              HeadersVisibility="Column"
+                              RowHeight="38"
+                              Height="260"
+                              GridLinesVisibility="Horizontal"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mã chuyến bay" Binding="{Binding FlightCode}" Width="120"/>
+                            <DataGridTextColumn Header="Hãng" Binding="{Binding AirlineName}" Width="180"/>
+                            <DataGridTextColumn Header="Điểm đi" Binding="{Binding DepartureCode}" Width="90"/>
+                            <DataGridTextColumn Header="Điểm đến" Binding="{Binding ArrivalCode}" Width="90"/>
+                            <DataGridTextColumn Header="Giờ đi" Binding="{Binding DepartureTime, StringFormat=dd/MM/yyyy HH:mm}" Width="160"/>
+                            <DataGridTextColumn Header="Giờ đến" Binding="{Binding ArrivalTime, StringFormat=dd/MM/yyyy HH:mm}" Width="160"/>
+                            <DataGridTextColumn Header="Giá Economy" Binding="{Binding EconomyPrice}" Width="130"/>
+                            <DataGridTextColumn Header="Ghế trống" Binding="{Binding AvailableSeats}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSelectFlight"
+                                Content="Chọn chuyến bay"
+                                Width="155"
+                                Height="42"
+                                Background="#2F80ED"
+                                Foreground="White"
+                                BorderThickness="0"
+                                FontWeight="SemiBold"
+                                Click="btnSelectFlight_Click"/>
+                    </StackPanel>
                 </Grid>
-
-                <Border Background="White" CornerRadius="5" Height="50" Margin="0,0,0,15">
-                    <ComboBox x:Name="cbPassengers" BorderThickness="0" Background="Transparent" FontSize="16" Padding="15,13" SelectedIndex="0">
-                        <ComboBoxItem Content="👤  1 người lớn"/>
-                        <ComboBoxItem Content="👤  2 người lớn"/>
-                        <ComboBoxItem Content="👤  1 người lớn, 1 trẻ em"/>
-                    </ComboBox>
-                </Border>
-
-                <Border Background="White" CornerRadius="5" Height="50" Margin="0,0,0,15">
-                    <TextBox x:Name="txtPromoCode" BorderThickness="0" Background="Transparent" FontSize="16" Padding="15,13" Text="🎟  Mã khuyến mại" Foreground="#555"/>
-                </Border>
-
-                <CheckBox Content="Tìm vé rẻ nhất" Foreground="White" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,20" Cursor="Hand"/>
-
-                <Button x:Name="btnSearchFlight" Content="Tìm chuyến bay" Background="#F2C00F" Foreground="#DA2128" 
-                        FontSize="18" FontWeight="Bold" Height="50" Cursor="Hand" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="25"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </StackPanel>
-        </Border>
-
-        <TextBlock Text="[Khu vực này sau này bạn chèn ảnh Banner Vietjet vào nhé]" 
-                   FontSize="20" Foreground="#A0000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,0,0,0" Width="300" TextWrapping="Wrap" TextAlignment="Center"/>
-    </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>
