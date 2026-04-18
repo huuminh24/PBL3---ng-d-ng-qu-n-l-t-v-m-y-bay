@@ -1,5 +1,4 @@
-using System;
-using System.Linq;
+//using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using FlightTicketManager.GUI;
@@ -12,6 +11,12 @@ namespace FlightTicketManager
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void btnHeaderLogin_Click(object sender, MouseButtonEventArgs e)

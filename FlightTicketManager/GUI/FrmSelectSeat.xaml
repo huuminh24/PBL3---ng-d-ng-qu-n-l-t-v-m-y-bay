@@ -1,0 +1,187 @@
+﻿<Window x:Class="FlightTicketManager.GUI.FrmSelectSeat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Chọn ghế"
+        Height="650"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F5F7FA">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="1.4*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Khu sơ đồ ghế -->
+        <Border Grid.Column="0"
+                Background="White"
+                CornerRadius="12"
+                Padding="20"
+                BorderBrush="#D9E2EC"
+                BorderThickness="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Sơ đồ ghế chuyến bay"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#102A43"/>
+
+                <Border Grid.Row="2"
+                        Height="60"
+                        Background="#E9EEF5"
+                        CornerRadius="30"
+                        HorizontalAlignment="Center"
+                        Padding="30,12">
+                    <TextBlock Text="ĐẦU MÁY BAY"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#486581"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <ScrollViewer Grid.Row="4"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                    <UniformGrid x:Name="ugSeats"
+                 Columns="4"
+                 HorizontalAlignment="Center"/>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <!-- Khu thông tin -->
+        <Border Grid.Column="2"
+                Background="White"
+                CornerRadius="12"
+                Padding="20"
+                BorderBrush="#D9E2EC"
+                BorderThickness="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Thông tin ghế ngồi"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#102A43"/>
+
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Chú thích"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#243B53"
+                               Margin="0,0,0,10"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <Border Width="18" Height="18" Background="#4CAF50" CornerRadius="4" Margin="0,0,8,0"/>
+                        <TextBlock Text="Ghế trống" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <Border Width="18" Height="18" Background="#F59E0B" CornerRadius="4" Margin="0,0,8,0"/>
+                        <TextBlock Text="Ghế đang chọn" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <Border Width="18" Height="18" Background="#9AA5B1" CornerRadius="4" Margin="0,0,8,0"/>
+                        <TextBlock Text="Ghế không khả dụng" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4">
+                    <TextBlock Text="Ghế đã chọn"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#243B53"
+                               Margin="0,0,0,10"/>
+
+                    <Border Background="#F0F4F8" CornerRadius="8" Padding="12">
+                        <TextBlock x:Name="txtSelectedSeat"
+                                   Text="Chưa chọn ghế"
+                                   FontSize="15"
+                                   Foreground="#334E68"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Row="6">
+                    <TextBlock Text="Hạng ghế"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#243B53"
+                               Margin="0,0,0,10"/>
+
+                    <Border Background="#F0F4F8" CornerRadius="8" Padding="12">
+                        <TextBlock x:Name="txtSeatClass"
+                                   Text="---"
+                                   FontSize="15"
+                                   Foreground="#334E68"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Row="8">
+                    <TextBlock Text="Trạng thái"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#243B53"
+                               Margin="0,0,0,10"/>
+
+                    <Border Background="#F0F4F8" CornerRadius="8" Padding="12">
+                        <TextBlock x:Name="txtSeatStatus"
+                                   Text="---"
+                                   FontSize="15"
+                                   Foreground="#334E68"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnCancel"
+                            Content="Hủy"
+                            Width="100"
+                            Height="42"
+                            Margin="0,0,10,0"
+                            Background="#D64545"
+                            Foreground="White"
+                            BorderThickness="0"
+                            FontWeight="SemiBold"
+                            Click="btnCancel_Click"/>
+
+                    <Button x:Name="btnNext"
+                            Content="Tiếp tục"
+                            Width="120"
+                            Height="42"
+                            Background="#2F80ED"
+                            Foreground="White"
+                            BorderThickness="0"
+                            FontWeight="SemiBold"
+                            Click="btnNext_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
